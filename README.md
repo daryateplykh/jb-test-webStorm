@@ -2,58 +2,41 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
 
-## Development server
+## ✈️  Quick setup & run
 
-To start a local development server, run:
+### Prerequisites
+- Node.js (LTS)
+- npm
 
+### Install dependencies
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Start development server
 ```bash
-ng generate component component-name
+npm start
 ```
+Then open http://localhost:4200/ in your browser. The app reloads automatically when you change source files.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
 
-```bash
-ng generate --help
-```
+## 💅 How authored CSS becomes browser CSS
 
-## Building
+- Styles are split into Global styles `src/styles.scss` and component-scoped styles such as `src/app/app.component.scss` and `src/app/header/header.component.scss`.
+- When you run `ng serve` or `ng build`, Angular CLI processes all .scss files using the Sass compiler, converting them into standard CSS.
+- Global styles are bundled into a single global stylesheet (e.g. styles.css) and applied application-wide.
+- Component styles use Angular’s default View Encapsulation. They are compiled to CSS and scoped to their components using generated attribute selectors, preventing styles from affecting other parts of the application.
+- In production builds, the resulting CSS is additionally optimized and minified *(whitespace is removed, and shorter representations are used where possible) before being served to the browser.
 
-To build the project run:
+## 🧠 Generated CSS & source maps
 
-```bash
-ng build
-```
+### During development (`ng serve`)
+- CSS and source maps are generated in memory by the dev server.
+- In Chrome DevTools you can inspect them via **Sources**:
+	- look for files like `styles.css`;
+	- corresponding `*.css.map` files link the compiled CSS rules back to the original `.scss` sources.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Production or explicit build (`ng build`)
+- After a build, all compiled assets are written to `dist/jb-test-webStorm/`.
+- The generated CSS bundles live there (for example `styles.css`, `main.css` or their hashed variants like `styles.[hash].css`).
+- When source maps are enabled for a build configuration, matching `*.css.map` files (e.g. `styles.[hash].css.map`) are created alongside the CSS bundles and can be used by DevTools to trace rules back to the original SCSS lines.
