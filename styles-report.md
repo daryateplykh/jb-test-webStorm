@@ -1,7 +1,7 @@
 ## 1. Selected UI element
 
 - **Element:** 
-  <button class="jb-btn jb-btn--primary"> Get Started </button>
+  Button `Get Started`
 
 ---
 
@@ -9,6 +9,7 @@
 ## 2. Analyze five CSS properties
 
 - **Property 1:**  `background-color`
+
 Computed value:
 rgb(240, 240, 240)
 
@@ -26,6 +27,7 @@ of the button is instead provided by the gradient applied through
 
 
 - **Property 2:**  `color`
+
 Computed value:
 rgb(249, 250, 251)
 
@@ -41,6 +43,7 @@ This value traces back to the design token `$color-text-light: #f9fafb` from _to
 
 
 - **Property 3:**  `border-bottom-color`
+
 Computed value:
 rgba(249, 250, 251, 0.1)
 
@@ -57,6 +60,7 @@ showing up as border-bottom-color (along with top, left, and right) in the Compu
 
 
 - **Property 4:**  `box-shadow`
+
 Computed value:
 0 0 0 1px rgba(15, 23, 42, 0.9), 0 18px 45px rgba(15, 23, 42, 0.9), 0 0 45px rgba(255, 75, 139, 0.45);
 
@@ -73,6 +77,7 @@ shadow of the button is instead provided by the mixin applied through the `.jb-b
 
 
 - **Property 5:**  `cursor`
+
 Computed value:
 pointer
 
@@ -92,17 +97,23 @@ This property is applied directly from the base component styles and is not over
 ## 3. Ambiguous / Indirect Mapping Cases
 
 1. **Shorthand Properties**
--Example: `Property 3: border-bottom-color`
--This happens because the code uses a "shorthand" like border-color, which the browser then splits into four separate sides (top, bottom, left, right).
+
+Example: `Property 3: border-bottom-color`
+
+This happens because the code uses a "shorthand" like border-color, which the browser then splits into four separate sides (top, bottom, left, right).
 
 2. **SCSS Variables and Mixins**
+
 Example: `Property 2: color` and `Property 4: box-shadow`
+
 The mapping can be indirect when using SCSS features. Source Maps can point to a specific line, 
 but the actual values (like colors or coordinates) are not there. Instead, only a variable name or a @include command can be seen. 
 To find the real values, an additional step is required to trace the code back to the original tokens or mixin definitions in other files.
 
 3. **Overlapping Styles**
+
 Example: `Property 1: background-color`
+
 The information in DevTools can be technically correct but practically useless for styling. 
 For example, background-color can be traced to a default browser style, but it stays hidden because a background-image (gradient) is placed on top of it.
 In this case, the right source of the element's look can only be found by checking a different, overlapping property.
