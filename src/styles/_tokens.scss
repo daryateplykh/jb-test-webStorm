@@ -1,0 +1,57 @@
+// Design tokens: colors, gradients, spacing, radii, transitions, breakpoints
+
+// Colors
+$color-bg-root: #020617;
+$color-bg-dark: #050816;
+$color-bg-elevated: rgba(15, 23, 42, 0.96);
+$color-surface-card: #0b1120;
+
+$color-text-light: #f9fafb;
+$color-text-muted-dark-bg: #9ca3af;
+$color-text-muted-light-bg: #6b7280;
+$color-text-strong: #111827;
+
+$color-border-subtle: rgba(249, 250, 251, 0.08);
+
+// Gradients
+$jb-gradient: linear-gradient(135deg, #ff4b8b 0%, #a855ff 45%, #4f46e5 100%);
+$jb-gradient-soft: linear-gradient(
+	135deg,
+	rgba(255, 75, 139, 0.5),
+	rgba(168, 85, 255, 0.4)
+);
+
+$jb-btn-gradient-c1: #ff4b8b;
+$jb-btn-gradient-c2: #a855ff;
+
+// Button text colors (aliases)
+$jb-btn-text-light: $color-text-light;
+$jb-btn-text-muted: $color-text-muted-dark-bg;
+
+// Typography tokens (aliases)
+$text-light: $color-text-light;
+$text-muted-dark-bg: $color-text-muted-dark-bg;
+$text-muted-light-bg: $color-text-muted-light-bg;
+$text-muted: $text-muted-dark-bg;
+$text-strong: $color-text-strong;
+
+// Layout
+$base-padding: 1.5rem;
+$radius-lg: 18px;
+$radius-pill: 999px;
+
+// Transitions
+$transition-fast: 160ms ease-out;
+$jb-btn-transition-fast: $transition-fast;
+
+// Borders
+$border-subtle: $color-border-subtle;
+$jb-btn-border-subtle: $color-border-subtle;
+
+// Background aliases
+$bg-dark: $color-bg-dark;
+$bg-elevated: $color-bg-elevated;
+
+// Breakpoints
+$bp-lg: 1024px;
+$bp-md: 768px;

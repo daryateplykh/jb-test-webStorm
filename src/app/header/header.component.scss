@@ -1,0 +1,64 @@
+@use "../../styles/tokens" as *;
+
+.jb-nav-wrapper {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.jb-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.75rem 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.jb-nav__logo-img {
+  display: block;
+  height: 32px;
+  width: auto;
+}
+
+.jb-nav__links {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.jb-nav__link {
+  position: relative;
+  text-decoration: none;
+  color: $text-muted-light-bg;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.25rem 0;
+  transition: color 160ms ease-out;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.3rem;
+    width: 0;
+    height: 2px;
+    background-image: $jb-gradient;
+    border-radius: 999px;
+    transition: width 160ms ease-out;
+  }
+
+  &:hover {
+    color: $text-strong;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+.jb-nav__cta {
+  cursor: pointer;
+}
